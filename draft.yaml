@@ -1,0 +1,23 @@
+models:
+  # Tenant:
+  #   name: string
+  #   email: string unique
+  #   email_verified_at: timestamp nullable
+  #   password: string
+  #   phone_number: string nullable
+  #   alternative_number: string nullable
+  #   house_number: string nullable
+  #   moved_in_at: date nullable
+  #   rememberToken: rememberToken
+  #   timestamps: timestamps
+
+  # Installations:
+  #   task_status: string
+  #   name: string
+  #   area: string nullable
+  #   package: string nullable
+  #   installer: string nullable
+  #   status: string default('pending')
+  #   scheduled_on: date nullable
+
+

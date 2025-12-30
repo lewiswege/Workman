@@ -1,0 +1,12 @@
+created:
+    - database/factories/TenantFactory.php
+    - database/factories/InstallationsFactory.php
+    - database/migrations/2025_12_26_161655_create_tenants_table.php
+    - database/migrations/2025_12_26_161656_create_installations_table.php
+    - app/Models/Tenant.php
+    - app/Models/Installations.php
+models:
+    User: {  }
+    Tenant: { name: string, email: 'string unique', email_verified_at: 'timestamp nullable', password: string, phone_number: 'string nullable', alternative_number: 'string nullable', house_number: 'string nullable', moved_in_at: 'date nullable', rememberToken: rememberToken, timestamps: timestamps }
+    Tasks: { task_status: string, name: string, area: 'string nullable', package: 'string nullable', installer: 'string nullable', status: "string default('pending')", scheduled_on: 'date nullable' }
+    Installations: { task_status: string, name: string, area: 'string nullable', package: 'string nullable', installer: 'string nullable', status: "string default('pending')", scheduled_on: 'date nullable' }
