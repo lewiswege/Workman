@@ -1,23 +1,20 @@
 models:
-  # Tenant:
-  #   name: string
-  #   email: string unique
-  #   email_verified_at: timestamp nullable
-  #   password: string
-  #   phone_number: string nullable
-  #   alternative_number: string nullable
-  #   house_number: string nullable
-  #   moved_in_at: date nullable
-  #   rememberToken: rememberToken
-  #   timestamps: timestamps
+  Team:
+    type: enum('MT','VH')
+    identity: string
+    leader: string
+    timestamps: timestamps
 
-  # Installations:
-  #   task_status: string
-  #   name: string
-  #   area: string nullable
-  #   package: string nullable
-  #   installer: string nullable
-  #   status: string default('pending')
-  #   scheduled_on: date nullable
+  Installation:
+    task_status: string default('Available')
+    name: string
+    area: string nullable
+    package: string nullable
+    team_id: foreignId nullable
+    status: string default('pending')
+    scheduled_on: date nullable
+    timestamps: timestamps
 
-
+relationships:
+  Installation:
+    belongsTo: Team

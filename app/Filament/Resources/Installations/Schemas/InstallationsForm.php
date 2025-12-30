@@ -13,6 +13,8 @@ class InstallationsForm
         return $schema
             ->components([
                 TextInput::make('task_status')
+                    ->default('Available')
+                    ->disabled()
                     ->required(),
                 TextInput::make('name')
                     ->required(),

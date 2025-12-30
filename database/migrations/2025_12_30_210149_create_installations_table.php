@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('installations', function (Blueprint $table) {
             $table->id();
-            $table->string('task_status')->default('Available');
+            $table->string('task_status');
             $table->string('name');
             $table->string('area')->nullable();
             $table->string('package')->nullable();
-            $table->string('installer')->nullable();
+            $table->string('team_id')->nullable();
             $table->string('status');
             $table->date('scheduled_on')->nullable();
             $table->timestamps();

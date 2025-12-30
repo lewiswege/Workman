@@ -1,12 +1,16 @@
 created:
-    - database/factories/TenantFactory.php
-    - database/factories/InstallationsFactory.php
-    - database/migrations/2025_12_26_161655_create_tenants_table.php
-    - database/migrations/2025_12_26_161656_create_installations_table.php
-    - app/Models/Tenant.php
-    - app/Models/Installations.php
+    - database/factories/TeamFactory.php
+    - database/factories/InstallationFactory.php
+    - database/migrations/2025_12_30_210148_create_teams_table.php
+    - database/migrations/2025_12_30_210149_create_installations_table.php
+    - app/Models/Team.php
+    - app/Models/Installation.php
 models:
     User: {  }
     Tenant: { name: string, email: 'string unique', email_verified_at: 'timestamp nullable', password: string, phone_number: 'string nullable', alternative_number: 'string nullable', house_number: 'string nullable', moved_in_at: 'date nullable', rememberToken: rememberToken, timestamps: timestamps }
     Tasks: { task_status: string, name: string, area: 'string nullable', package: 'string nullable', installer: 'string nullable', status: "string default('pending')", scheduled_on: 'date nullable' }
     Installations: { task_status: string, name: string, area: 'string nullable', package: 'string nullable', installer: 'string nullable', status: "string default('pending')", scheduled_on: 'date nullable' }
+    Installer: { type: "enum('MT','VH')", identity: string, leader: string, timestamps: timestamps }
+    Installation: { task_status: "string default('Available')", name: string, area: 'string nullable', package: 'string nullable', team_id: 'foreignId nullable', status: "string default('pending')", scheduled_on: 'date nullable', timestamps: timestamps }
+    team: { type: "enum('MT','VH')", identity: string, leader: string, timestamps: timestamps }
+    Team: { type: "enum('MT','VH')", identity: string, leader: string, timestamps: timestamps }
