@@ -21,4 +21,14 @@ class Team extends Model
             'id' => 'integer',
         ];
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function installations()
+    {
+        return $this->hasMany(Installations::class);
+    }
 }
