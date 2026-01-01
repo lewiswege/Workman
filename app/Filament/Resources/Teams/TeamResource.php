@@ -42,7 +42,7 @@ class TeamResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\InstallationsRelationManager::class,
         ];
     }
 
