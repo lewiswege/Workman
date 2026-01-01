@@ -40,7 +40,8 @@ class InstallationsTable
                     ->searchable(),
                 TextColumn::make('package')
                     ->searchable(),
-                TextColumn::make('installer')
+                TextColumn::make('team.identity')
+                    ->label('Installer')
                     ->searchable(),
                 TextColumn::make('status')
                     ->searchable(),

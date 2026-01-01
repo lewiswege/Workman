@@ -17,7 +17,8 @@ class InstallationsInfolist
                     ->placeholder('-'),
                 TextEntry::make('package')
                     ->placeholder('-'),
-                TextEntry::make('installer')
+                TextEntry::make('team.identity')
+                    ->label('Installer')
                     ->placeholder('-'),
                 TextEntry::make('status'),
                 TextEntry::make('scheduled_on')

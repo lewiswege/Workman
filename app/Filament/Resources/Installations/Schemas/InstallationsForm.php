@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Installations\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -20,7 +21,11 @@ class InstallationsForm
                     ->required(),
                 TextInput::make('area'),
                 TextInput::make('package'),
-                TextInput::make('installer'),
+                Select::make('team_id')
+                    ->relationship('team', 'identity')
+                    ->label('Installer')
+                    ->searchable()
+                    ->preload(),
                 TextInput::make('status')
                     ->required(),
                 DatePicker::make('scheduled_on'),

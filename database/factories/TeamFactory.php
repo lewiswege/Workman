@@ -12,9 +12,9 @@ class TeamFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => fake()->word(),
-            'identity' => fake()->word(),
-            'leader' => fake()->word(),
+            'type' => fake()->randomElement(['MT', 'VH']),
+            'identity' => strtoupper(fake()->bothify('???-####')),
+            'leader' => fake()->name(),
         ];
     }
 }

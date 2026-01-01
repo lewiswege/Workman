@@ -19,7 +19,7 @@ class Installations extends Model
         'name',
         'area',
         'package',
-        'installer',
+        'team_id',
         'status',
         'scheduled_on',
     ];
@@ -35,5 +35,10 @@ class Installations extends Model
             'id' => 'integer',
             'scheduled_on' => 'date',
         ];
+    }
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
     }
 }
