@@ -19,14 +19,27 @@ class InstallationsForm
                     ->required(),
                 TextInput::make('name')
                     ->required(),
-                TextInput::make('area'),
-                TextInput::make('package'),
+                Select::make('area')
+                    ->options(config('areas'))
+                    ->searchable()
+                    ->required(),
+                Select::make('package')
+                    ->options(config('packages'))
+                    ->searchable()
+                    ->required(),
                 Select::make('team_id')
                     ->relationship('team', 'identity')
                     ->label('Installer')
                     ->searchable()
                     ->preload(),
-                TextInput::make('status')
+                Select::make('status')
+                    ->options([
+                        'scheduled' => 'Scheduled',
+                        'pending' => 'Pending',
+                        'failed' => 'Failed',
+                        'rescheduled' => 'Rescheduled'
+                    ])
+                    ->default('scheduled')
                     ->required(),
                 DatePicker::make('scheduled_on'),
             ]);

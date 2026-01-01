@@ -44,6 +44,13 @@ class InstallationsTable
                     ->label('Installer')
                     ->searchable(),
                 TextColumn::make('status')
+                    ->badge()
+                    ->color(fn (string $state): string => match($state) {
+                        'scheduled' => 'info',
+                        'pending' => 'warning',
+                        'failed' => 'danger',
+                        'rescheduled' => 'danger',
+                    })
                     ->searchable(),
                 TextColumn::make('scheduled_on')
                     ->date()
