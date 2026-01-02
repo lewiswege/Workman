@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\Teams\RelationManagers;
 
 use App\Filament\Resources\Installations\Schemas\InstallationsForm;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
+use Illuminate\Database\Eloquent\Model;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -20,6 +22,11 @@ class InstallationsRelationManager extends RelationManager
 
     protected static ?string $title = 'Tasks';
 
+    public static function canViewForRecord(Model $ownerRecord, string $pageClass): bool
+    {
+        return true;
+    }
+
     public function form(Schema $schema): Schema
     {
         return InstallationsForm::configure($schema);
@@ -29,6 +36,7 @@ class InstallationsRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('name')
+            ->searchable(false)
             ->columns([
                 TextColumn::make('task_status')
                     ->badge()
@@ -68,7 +76,10 @@ class InstallationsRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                CreateAction::make(),
+                CreateAction::make()
+                    ->label('New Installation')
+                    ->icon('heroicon-o-plus-circle')
+                    ->authorize(fn () => true),
             ])
             ->recordActions([
                 ViewAction::make(),

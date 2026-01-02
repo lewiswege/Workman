@@ -19,7 +19,8 @@ class UserForm
                     ->label('Email address')
                     ->email()
                     ->required(),
-                DateTimePicker::make('email_verified_at'),
+                // DateTimePicker::make('email_verified_at')
+                //     ->invisible(),
                 TextInput::make('password')
                     ->password()
                     ->required(),
@@ -27,6 +28,7 @@ class UserForm
                     ->relationship('team', 'identity')
                     ->label('Team')
                     ->searchable()
+                    ->required()
                     ->preload(),
             ]);
     }
