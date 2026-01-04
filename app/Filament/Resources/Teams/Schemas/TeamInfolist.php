@@ -53,10 +53,10 @@ class TeamInfolist
                                         ->icon('heroicon-o-user')
                                         ->color('success'),
 
-                                    TextEntry::make('users_count')
+                                    TextEntry::make('users.name')
                                         ->label('Team Members')
-                                        ->icon('heroicon-o-users')
                                         ->color('info')
+                                        ->bulleted()
                                         ->placeholder('No members'),
                                 ]),
                             ]),

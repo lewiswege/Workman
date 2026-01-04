@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Teams\RelationManagers;
 
 use App\Filament\Resources\Installations\Schemas\InstallationsForm;
-use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Actions\CreateAction;
@@ -64,8 +63,10 @@ class InstallationsRelationManager extends RelationManager
                     ->color(fn (string $state): string => match($state) {
                         'scheduled' => 'info',
                         'pending' => 'warning',
+                        'completed' => 'success',
                         'failed' => 'danger',
                         'rescheduled' => 'danger',
+                        default => 'gray',
                     })
                     ->searchable(),
                 TextColumn::make('scheduled_on')

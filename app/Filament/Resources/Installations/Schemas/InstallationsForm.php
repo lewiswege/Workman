@@ -21,8 +21,14 @@ class InstallationsForm
                         TextInput::make('name')
                             ->label('Customer Name')
                             ->required()
-                            ->maxLength(255)
-                            ->columnSpanFull(),
+                            ->maxLength(255),
+
+                        TextInput::make('phone_number')
+                            ->label('Phone Number')
+                            ->tel()
+                            ->maxLength(10)
+                            ->placeholder('07xxxxxxx')
+                            ->dehydrateStateUsing(fn ($state) => preg_replace('/\s+/', '', $state)), //REGEX FOR PHONW INPUT
 
                         Select::make('area')
                             ->label('Service Area')

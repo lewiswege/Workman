@@ -17,6 +17,7 @@ class Installations extends Model
     protected $fillable = [
         'task_status',
         'name',
+        'phone_number',
         'area',
         'package',
         'team_id',
