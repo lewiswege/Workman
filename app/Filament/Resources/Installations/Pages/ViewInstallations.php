@@ -24,12 +24,16 @@ class ViewInstallations extends ViewRecord
                 ->color('success')
                 ->requiresConfirmation()
                 ->modalHeading('Complete Installation')
-                ->modalDescription('This will mark the installation as complete and remove it from the records.')
+                ->modalDescription('This will mark the installation as complete.')
                 ->modalSubmitActionLabel('Complete')
-                ->visible(fn ($record) => $record->task_status === 'Active')
+                ->visible(fn ($record) => $record->task_status === 'Active' && $record->status !== 'completed')
                 ->action(function ($record) {
-                    // Delete the completed task
-                    $record->delete();
+                    // Update the record to completed
+                    $record->update([
+                        'status' => 'completed',
+                        'completed_at' => now(),
+                        'task_status' => 'Available'
+                    ]);
 
                     // Set all remaining installations to Available
                     Installations::query()->update(['task_status' => 'Available']);
@@ -38,7 +42,7 @@ class ViewInstallations extends ViewRecord
                     Notification::make()
                         ->success()
                         ->title('Installation Completed')
-                        ->body('The installation has been completed and removed. All tasks are now available.')
+                        ->body('The installation has been marked as completed. All tasks are now available.')
                         ->send();
 
                     // Redirect to the list page

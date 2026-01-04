@@ -24,6 +24,8 @@ class TeamResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'identity';
 
+    protected static ?int $navigationSort = 2;
+
     public static function form(Schema $schema): Schema
     {
         return TeamForm::configure($schema);

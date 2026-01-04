@@ -22,6 +22,7 @@ class Installations extends Model
         'team_id',
         'status',
         'scheduled_on',
+        'completed_at',
     ];
 
     /**
@@ -34,6 +35,7 @@ class Installations extends Model
         return [
             'id' => 'integer',
             'scheduled_on' => 'date',
+            'completed_at' => 'datetime',
         ];
     }
 

@@ -11,6 +11,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class InstallationsTable
@@ -48,6 +49,7 @@ class InstallationsTable
                     ->color(fn (string $state): string => match($state) {
                         'scheduled' => 'info',
                         'pending' => 'warning',
+                        'completed' => 'success',
                         'failed' => 'danger',
                         'rescheduled' => 'danger',
                     })
@@ -65,7 +67,16 @@ class InstallationsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->options([
+                        'scheduled' => 'Scheduled',
+                        'pending' => 'Pending',
+                        'completed' => 'Completed',
+                        'failed' => 'Failed',
+                        'rescheduled' => 'Rescheduled',
+                    ])
+                    ->default('scheduled,pending,failed,rescheduled')
+                    ->multiple(),
             ])
             ->recordActions([
                 ViewAction::make(),
