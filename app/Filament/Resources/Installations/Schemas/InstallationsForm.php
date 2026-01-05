@@ -25,10 +25,11 @@ class InstallationsForm
 
                         TextInput::make('phone_number')
                             ->label('Phone Number')
+                            ->required()
                             ->tel()
-                            ->maxLength(10)
+                            ->mask('9999999999')
                             ->placeholder('07xxxxxxx')
-                            ->dehydrateStateUsing(fn ($state) => preg_replace('/\s+/', '', $state)), //REGEX FOR PHONW INPUT
+                            ->maxLength(10),
 
                         Select::make('area')
                             ->label('Service Area')

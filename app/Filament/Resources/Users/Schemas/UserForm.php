@@ -51,6 +51,7 @@ class UserForm
                             ->label('Assigned Team')
                             ->searchable()
                             ->preload()
+                            ->required()
                             ->native(false)
                             ->helperText('Select the team this user belongs to')
                             ->columnSpanFull(),
