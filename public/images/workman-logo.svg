@@ -1,30 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
-  <!-- Background -->
   <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
     </linearGradient>
   </defs>
 
-  <!-- Icon: Wrench and Hammer crossed -->
-  <g transform="translate(20, 25)">
-    <!-- Wrench -->
-    <path d="M 15 35 L 20 30 L 25 35 L 20 40 Z M 20 30 L 30 20 Q 35 15 32 12 Q 29 9 24 12 L 32 20 L 28 24 L 20 16 Q 17 21 22 26 Z"
-          fill="#3b82f6" stroke="#1e40af" stroke-width="1.5"/>
+  <!-- Icon: Network/Router with Signal Waves (ISP Installation) -->
+  <g transform="translate(15, 20)">
+    <!-- Router/Hub base -->
+    <rect x="10" y="30" width="35" height="20" rx="3"
+          fill="url(#iconGradient)"
+          stroke="#1e40af"
+          stroke-width="2"/>
 
-    <!-- Hammer -->
-    <path d="M 10 25 L 25 10 L 30 15 L 15 30 Z M 25 10 L 35 5 L 40 10 L 30 15 Z"
-          fill="#2563eb" stroke="#1e40af" stroke-width="1.5"/>
+    <!-- Router details (ports/lights) -->
+    <circle cx="18" cy="40" r="2" fill="#60a5fa"/>
+    <circle cx="25" cy="40" r="2" fill="#60a5fa"/>
+    <circle cx="32" cy="40" r="2" fill="#60a5fa"/>
+    <circle cx="39" cy="40" r="2" fill="#60a5fa"/>
+
+    <!-- Antenna/Cable -->
+    <line x1="27.5" y1="30" x2="27.5" y2="20"
+          stroke="#1e40af"
+          stroke-width="2.5"
+          stroke-linecap="round"/>
+    <circle cx="27.5" cy="18" r="2.5" fill="#3b82f6"/>
+
+    <!-- Signal waves (WiFi/Network symbol) -->
+    <path d="M 27.5 15 Q 20 10 15 5"
+          fill="none"
+          stroke="#3b82f6"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity="0.7"/>
+    <path d="M 27.5 15 Q 23 12 20 8"
+          fill="none"
+          stroke="#3b82f6"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity="0.9"/>
+
+    <path d="M 27.5 15 Q 35 10 40 5"
+          fill="none"
+          stroke="#3b82f6"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity="0.7"/>
+    <path d="M 27.5 15 Q 32 12 35 8"
+          fill="none"
+          stroke="#3b82f6"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity="0.9"/>
   </g>
 
   <!-- Text: WORKMAN -->
-  <text x="75" y="58" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="bold" fill="#1e293b">
+  <text x="80" y="58" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="bold" fill="#1e293b">
     WORKMAN
   </text>
 
   <!-- Tagline -->
-  <text x="77" y="75" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">
+  <text x="82" y="75" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">
     Installation Management System
   </text>
 </svg>
