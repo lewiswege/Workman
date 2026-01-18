@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Icon: Wrench and Hammer crossed -->
+  <g transform="translate(20, 25)">
+    <!-- Wrench -->
+    <path d="M 15 35 L 20 30 L 25 35 L 20 40 Z M 20 30 L 30 20 Q 35 15 32 12 Q 29 9 24 12 L 32 20 L 28 24 L 20 16 Q 17 21 22 26 Z"
+          fill="#3b82f6" stroke="#1e40af" stroke-width="1.5"/>
+
+    <!-- Hammer -->
+    <path d="M 10 25 L 25 10 L 30 15 L 15 30 Z M 25 10 L 35 5 L 40 10 L 30 15 Z"
+          fill="#2563eb" stroke="#1e40af" stroke-width="1.5"/>
+  </g>
+
+  <!-- Text: WORKMAN -->
+  <text x="75" y="58" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="bold" fill="#1e293b">
+    WORKMAN
+  </text>
+
+  <!-- Tagline -->
+  <text x="77" y="75" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b">
+    Installation Management System
+  </text>
+</svg>

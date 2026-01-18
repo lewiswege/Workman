@@ -13,9 +13,13 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
+use Pest\Arch\Objects\FunctionDescription;
 
 class InstallationsTable
 {
+
     public static function configure(Table $table): Table
     {
         return $table
