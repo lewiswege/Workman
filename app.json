@@ -1,0 +1,58 @@
+{
+  "name": "Workman",
+  "description": "Comprehensive installation management system for ISP-level operations",
+  "keywords": ["laravel", "filament", "php", "isp", "installation-management"],
+  "website": "https://github.com/lewiswege/workman",
+  "repository": "https://github.com/lewiswege/workman",
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "value": "Workman"
+    },
+    "APP_ENV": {
+      "description": "Application environment",
+      "value": "production"
+    },
+    "APP_DEBUG": {
+      "description": "Enable debug mode (set to false in production)",
+      "value": "false"
+    },
+    "APP_URL": {
+      "description": "Application URL",
+      "value": "https://workman-lewis.herokuapp.com"
+    },
+    "LOG_CHANNEL": {
+      "description": "Log channel",
+      "value": "stack"
+    },
+    "LOG_LEVEL": {
+      "description": "Log level",
+      "value": "error"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0"
+    },
+    {
+      "plan": "heroku-redis:mini"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache"
+  }
+}
