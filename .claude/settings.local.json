@@ -3,7 +3,9 @@
     "allow": [
       "mcp__ide__getDiagnostics",
       "Bash(tree:*)",
-      "Bash(php artisan tinker --execute=\"Schema::dropIfExists(''rss_feed_articles''); Schema::dropIfExists(''isp_resources'');\")"
+      "Bash(php artisan tinker --execute=\"Schema::dropIfExists(''rss_feed_articles''); Schema::dropIfExists(''isp_resources'');\")",
+      "Bash(grep:*)",
+      "Bash(find:*)"
     ]
   }
 }

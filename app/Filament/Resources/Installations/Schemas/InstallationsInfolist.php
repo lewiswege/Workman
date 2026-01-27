@@ -27,6 +27,12 @@ class InstallationsInfolist
                                         ->weight(FontWeight::Bold)
                                         ->icon('heroicon-o-user'),
 
+                                    TextEntry::make('phone_number')
+                                        ->label('Phone Number')
+                                        ->icon('heroicon-o-phone')
+                                        ->placeholder('Not provided')
+                                        ->copyable(),
+
                                     TextEntry::make('area')
                                         ->label('Service Area')
                                         ->icon('heroicon-o-map-pin')
@@ -46,6 +52,7 @@ class InstallationsInfolist
                                         ->icon('heroicon-o-user-group')
                                         ->placeholder('Not assigned')
                                         ->color('success'),
+
 
                                     TextEntry::make('scheduled_on')
                                         ->label('Scheduled Date')
