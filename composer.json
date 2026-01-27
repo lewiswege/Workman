@@ -6,6 +6,7 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
+        "fakerphp/faker": "^1.23",
         "php": "^8.2",
         "filament/filament": "^4.0",
         "laminas/laminas-feed": "^2.26",
@@ -14,7 +15,6 @@
         "predis/predis": "^3.3"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.23",
         "laravel-shift/blueprint": "^2.13",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
