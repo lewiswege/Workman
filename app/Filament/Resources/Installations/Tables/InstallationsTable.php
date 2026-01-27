@@ -41,6 +41,9 @@ class InstallationsTable
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
+                TextColumn::make('phone_number')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('area')
                     ->searchable(),
                 TextColumn::make('package')
