@@ -26,6 +26,11 @@ class InstallationsResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'phone_number', 'area', 'package', 'team.identity'];
+    }
+
     public static function form(Schema $schema): Schema
     {
         return InstallationsForm::configure($schema);
