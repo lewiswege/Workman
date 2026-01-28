@@ -16,6 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Actions\Action;
 
 class UserResource extends Resource
 {
@@ -25,13 +26,30 @@ class UserResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    //ordering on the side bar
     protected static ?int $navigationSort = 1;
 
+    //more info about the searched record
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            'Email' => $record->name,
+            'Email' => $record->email,
             'Came in' => $record->created_at,
+        ];
+    }
+
+    //actions done to the user on the global search results
+    public static function getGlobalSearchResultActions(Model $record): array
+    {
+        return[
+            Action::make('view')
+                ->label('')
+                ->icon('heroicon-o-eye')
+                ->url(static::getUrl('view', ['record' => $record])),
+            Action::make('edit')
+                ->label('')
+                ->icon('heroicon-o-pencil-square')
+                ->url(static::getUrl('edit', ['record' => $record])),
         ];
     }
 
