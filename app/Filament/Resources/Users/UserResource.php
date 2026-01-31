@@ -43,11 +43,11 @@ class UserResource extends Resource
     {
         return[
             Action::make('view')
-                ->label('')
+                ->label('view')
                 ->icon('heroicon-o-eye')
                 ->url(static::getUrl('view', ['record' => $record])),
             Action::make('edit')
-                ->label('')
+                ->label('edit')
                 ->icon('heroicon-o-pencil-square')
                 ->url(static::getUrl('edit', ['record' => $record])),
         ];
