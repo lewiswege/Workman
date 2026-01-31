@@ -34,7 +34,7 @@ class UserForm
                         TextInput::make('password')
                             ->label('Password')
                             ->password()
-                            ->required()
+                            ->required(fn (string $operation): bool => $operation === 'create')
                             ->minLength(8)
                             ->dehydrated(fn ($state) => filled($state))
                             ->helperText('Minimum 8 characters (leave blank to keep current)'),
