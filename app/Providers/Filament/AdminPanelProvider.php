@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
+use Filament\Enums\GlobalSearchPosition;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -29,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->unsavedChangesAlerts('You have unsaved changes')
+            ->globalSearch(position: GlobalSearchPosition::Sidebar)
             ->colors([
                 'primary' => Color::Violet,
                 'danger' => Color::Rose,
