@@ -11,6 +11,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Platform;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -31,7 +32,11 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->unsavedChangesAlerts('You have unsaved changes')
             ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
-            ->globalSearchFieldKeyBindingSuffix()
+            ->globalSearchFieldSuffix(fn (): ?string => match(Platform::detect()) {
+                Platform::Windows, Platform::Linux => 'CTRL+K',
+                Platform::Mac => '⌘K',
+                Default => null,
+            })
             ->globalSearchDebounce('400ms')
             ->colors([
                 'primary' => Color::Violet,
