@@ -30,7 +30,9 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->unsavedChangesAlerts('You have unsaved changes')
-            ->globalSearch(position: GlobalSearchPosition::Sidebar)
+            ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
+            ->globalSearchFieldKeyBindingSuffix()
+            ->globalSearchDebounce('400ms')
             ->colors([
                 'primary' => Color::Violet,
                 'danger' => Color::Rose,
